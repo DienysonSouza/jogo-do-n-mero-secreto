@@ -2,7 +2,7 @@
 let listaDeNumeroSorteados = [];
 
 // Define o limite de números que podem ser gerados
-let limiteDeNumerosNaLIsta = 10;
+let limiteDeNumerosNaLista = 100;
 
 // Gera um número aleatório que será o "número secreto"
 let numeroSecreto = gerarNumeroAleatorio();
@@ -23,7 +23,7 @@ function exibirMensagemInicial() {
   exibirTextoNaTela("h1", "Jogo do número secreto"); // Exibe o título do jogo
   exibirTextoNaTela(
     "p",
-    `Escolha um número entre 1 e ${limiteDeNumerosNaLIsta}` // Exibe as instruções do jogo
+    `Escolha um número entre 1 e ${limiteDeNumerosNaLista}` // Exibe as instruções do jogo
   );
 }
 exibirMensagemInicial(); // Chama a função para exibir a mensagem inicial ao carregar a página
@@ -31,13 +31,15 @@ exibirMensagemInicial(); // Chama a função para exibir a mensagem inicial ao c
 // Função para verificar o chute do usuário
 function verificarChute() {
   let chute = document.querySelector("input").value; // Obtém o valor digitado no campo input
-  if (chute == numeroSecreto) { // Verifica se o chute está correto
+  if (chute == numeroSecreto) {
+    // Verifica se o chute está correto
     exibirTextoNaTela("h1", "Acertou!"); // Exibe a mensagem de acerto
     let palavraTentativa = tentativas > 1 ? "tentativas" : "tentativa"; // Define se o plural de 'tentativa' será usado
     let mensagemTentitvas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`; // Monta a mensagem de sucesso
     exibirTextoNaTela("p", mensagemTentitvas); // Exibe a mensagem de sucesso
     document.getElementById("reiniciar").removeAttribute("disabled"); // Habilita o botão de reiniciar
-  } else { // Se o chute estiver errado
+  } else {
+    // Se o chute estiver errado
     exibirTextoNaTela("h1", "Você errou, tente novamente!"); // Exibe mensagem de erro
 
     // Informa se o número secreto é maior ou menor
@@ -54,11 +56,11 @@ function verificarChute() {
 // Função para gerar um número aleatório
 function gerarNumeroAleatorio() {
   // Gera um número aleatório entre 1 e o limite definido
-  let numeroEscolhido = parseInt(Math.random() * limiteDeNumerosNaLIsta + 1);
+  let numeroEscolhido = parseInt(Math.random() * limiteDeNumerosNaLista + 1);
   let quantidadeDeNumerosEscolhidos = listaDeNumeroSorteados.length; // Conta quantos números já foram sorteados
 
   // Reinicia a lista se todos os números já tiverem sido sorteados
-  if (quantidadeDeNumerosEscolhidos == limiteDeNumerosNaLIsta) {
+  if (quantidadeDeNumerosEscolhidos == limiteDeNumerosNaLista) {
     listaDeNumeroSorteados = [];
   }
 
