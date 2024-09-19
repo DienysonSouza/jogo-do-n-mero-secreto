@@ -2,7 +2,7 @@
 let listaDeNumeroSorteados = [];
 
 // Define o limite de números que podem ser gerados
-let limiteDeNumerosNaLista = 100;
+let limiteDeNumerosNaLista = 50;
 
 // Gera um número aleatório que será o "número secreto"
 let numeroSecreto = gerarNumeroAleatorio();
